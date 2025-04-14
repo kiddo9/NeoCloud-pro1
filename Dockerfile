@@ -1,5 +1,5 @@
 # build docker image from node js base image
-From node:18
+FROM node:18
 
 # create work dir
 WORKDIR /app
@@ -7,10 +7,14 @@ WORKDIR /app
 # copy package.json file
 COPY package.json ./
 
-#install dependencies
+# install dependencies
 RUN npm install
+
+# copy the rest of the app
+COPY . .
 
 # expose port
 EXPOSE 5001
 
-CMD ["npm","start"]
+# start the app
+CMD ["npm", "start"]
