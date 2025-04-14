@@ -51,7 +51,9 @@ exports.ordersList = async (req, res) => {
       allOrders,
     });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message, error });
     console.log(error);
   }
 };

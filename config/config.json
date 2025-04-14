@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "sellsDB",
-    "host": "127.0.0.1",
+    "username": "postgres",
+    "password": "MWvjiwHfQnpeRDTrdEAATOXpqVdVWWht",
+    "database": "railway",
+    "host": "switchyard.proxy.rlwy.net",
+    "port": 17644,
     "dialect": "postgres"
   },
   "test": {
