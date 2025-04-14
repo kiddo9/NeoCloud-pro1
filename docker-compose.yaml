@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    container_name: postgresDB
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # 🛠️ fix: use colon without space
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgAdmin
+    restart: always
+    ports:
+      - 8000:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=kiddo@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=kiddo
+    depends_on:
+      - postgres
+
+volumes: # ✅ moved out of `services`
+  postgres-data:
+    driver: local
